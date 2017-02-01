@@ -186,10 +186,10 @@ package org.bytearray.smtp.mailer {
 			try {
 
 				authenticate(sLogin, sPass);
-				pSubject = this.UTF8Encode(pSubject);
+				subject = this.UTF8Encode(subject);
 				fromName = this.UTF8Encode(fromName);
 				var c:Array = [ "MAIL FROM: <" + from + ">", "RCPT TO: <" + to + ">", "DATA\r\n" + "From: " + fromName + "<" + from + ">\r\n" + "To: " + to + "\r\n" + "Subject: " + subject + "\r\n" + "MIME-Version: 1.0\r\n" + "Content-Type: text/plain; charset=UTF-8; format=flowed\r\n\r\n" + message + "", "." ];
-				c = this.checkMultiTo(c, pDest);
+				c = this.checkMultiTo(c, to);
 				addToQueue(c);
 				startQueue();
 				trace("queued test email");
@@ -205,7 +205,7 @@ package org.bytearray.smtp.mailer {
 			try {
 
 				authenticate(sLogin, sPass);
-				pSubject = this.UTF8Encode(pSubject);
+				var pSubject:String = this.UTF8Encode("test subject");
 				fromName = this.UTF8Encode(fromName);
 				var c:Array = [ "MAIL FROM: <" + from + ">", "RCPT TO: <" + to + ">", "DATA\r\n" + "From: " + fromName + "<" + from + ">\r\n" + "To: " + to + "\r\n" + "Subject: Testing SMTPMailer\r\n" + "MIME-Version: 1.0\r\n" + "Content-Type: text/html; charset=UTF-8; format=flowed\r\n\r\n" + "That you are seeing this email means it works :)", "." ];
 				c = this.checkMultiTo(c, to);

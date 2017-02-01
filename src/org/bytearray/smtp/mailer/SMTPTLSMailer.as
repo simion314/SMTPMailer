@@ -83,8 +83,8 @@ package org.bytearray.smtp.mailer {
 		public function SMTPTLSMailer(pHost:String, pPort:int) {
 			try {
 				super();
-				var config:TLSConfig = new TLSConfig(TLSEngine.CLIENT);
-				super.connect(pHost, pPort, config);
+				//var config:TLSConfig = new TLSConfig(TLSEngine.CLIENT);
+				super.connect(pHost, pPort);
 				sHost = pHost;
 				sPort = pPort;
 

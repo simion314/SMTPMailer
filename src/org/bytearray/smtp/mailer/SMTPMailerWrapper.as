@@ -103,7 +103,7 @@ package org.bytearray.smtp.mailer {
 			socket.sendTestMail(from, to, from);
 		}
 
-		public function cancelAll(socket:Object):void {
+		public function cancelAll(socket:Object=null):void {
 			
 		}
 		
